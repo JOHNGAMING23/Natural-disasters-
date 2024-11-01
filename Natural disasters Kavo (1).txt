@@ -1,0 +1,617 @@
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+local Frame = Instance.new("Frame")
+Frame.Size = UDim2.new(0, 400, 0, 300)
+Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
+Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+Frame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+Frame.BorderSizePixel = 0
+Frame.Active = true
+Frame.Draggable = true
+Frame.Parent = ScreenGui
+
+local FrameCorner = Instance.new("UICorner")
+FrameCorner.CornerRadius = UDim.new(0, 10)
+FrameCorner.Parent = Frame
+
+local Close = Instance.new("TextButton")
+Close.Size = UDim2.new(0, 40, 0, 40)
+Close.Position = UDim2.new(1, -40, 0, 0)
+Close.BackgroundTransparency = 1
+Close.Text = "×"
+Close.TextScaled = true
+Close.TextColor3 = Color3.fromRGB(150, 150, 150)
+Close.Parent = Frame
+Close.MouseButton1Click:Connect(function()
+   ScreenGui:Destroy()
+end)
+
+local Title = Instance.new("TextLabel")
+Title.Size = UDim2.new(1, 0, 0, 30)
+Title.Position = UDim2.new(0, 0, 0.05, 0)
+Title.Text = "Petlog Hub Key System 🗝️"
+Title.TextSize = 20
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1
+Title.Parent = Frame
+
+local Instructions = Instance.new("TextLabel")
+Instructions.Size = UDim2.new(1, 0, 0, 30)
+Instructions.Position = UDim2.new(0, 0, 0.2, 0)
+Instructions.Text = "Enter The Key To load the Script"
+Instructions.TextSize = 15
+Instructions.TextColor3 = Color3.fromRGB(150, 150, 150)
+Instructions.BackgroundTransparency = 1
+Instructions.Parent = Frame
+
+local TextBox = Instance.new("TextBox")
+TextBox.Size = UDim2.new(0.8, 0, 0.2, 0)
+TextBox.Position = UDim2.new(0.1, 0, 0.4, 0)
+TextBox.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+TextBox.PlaceholderText = "Enter The Key Here"
+TextBox.Text = ""
+TextBox.TextSize = 19
+TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.Parent = Frame
+
+local TextBoxCorner = Instance.new("UICorner")
+TextBoxCorner.CornerRadius = UDim.new(0, 5)
+TextBoxCorner.Parent = TextBox
+
+local GetKey = Instance.new("TextButton")
+GetKey.Size = UDim2.new(0.35, 0, 0.15, 0)
+GetKey.Position = UDim2.new(0.1, 0, 0.7, 0)
+GetKey.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+GetKey.Text = "Get Key"
+GetKey.TextSize = 19
+GetKey.TextColor3 = Color3.fromRGB(150, 150, 150)
+GetKey.Parent = Frame
+
+local GetKeyCorner = Instance.new("UICorner")
+GetKeyCorner.CornerRadius = UDim.new(0, 5)
+GetKeyCorner.Parent = GetKey
+
+local CheckKey = Instance.new("TextButton")
+CheckKey.Size = UDim2.new(0.35, 0, 0.15, 0)
+CheckKey.Position = UDim2.new(0.55, 0, 0.7, 0)
+CheckKey.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+CheckKey.Text = "Check Key"
+CheckKey.TextSize = 19
+CheckKey.TextColor3 = Color3.fromRGB(150, 150, 150)
+CheckKey.Parent = Frame
+
+local CheckKeyCorner = Instance.new("UICorner")
+CheckKeyCorner.CornerRadius = UDim.new(0, 5)
+CheckKeyCorner.Parent = CheckKey
+
+GetKey.MouseButton1Click:Connect(function()
+   setclipboard("THEAMZINGPETLOGMAN")
+end)
+
+local function validateKey(key)
+    return key == "THEAMZINGPETLOGMAN" -- Replace this with your key
+end
+
+CheckKey.MouseButton1Click:Connect(function()
+    local enteredKey = TextBox.Text
+    if validateKey(enteredKey) then
+        TextBox.PlaceholderText = "Correct Key!"
+        TextBox.Text = ""
+        wait(1)
+        ScreenGui:Destroy()
+
+-- Put Your Script Here
+-- ScreenGui object
+local gui = Instance.new("ScreenGui")
+gui.Name = "CustomLoader"
+gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+-- Frame
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 300, 0, 180)
+frame.Position = UDim2.new(0.5, -150, 0.9, -280)
+frame.BackgroundColor3 = Color3.new(0, 0, 0)
+frame.Parent = gui
+
+-- UICorner of the frame
+local corner = Instance.new("UICorner")
+corner.CornerRadius = UDim.new(0, 10)
+corner.Parent = frame
+
+-- Title 
+local Title = Instance.new("TextLabel")
+Title.Size = UDim2.new(0.99, 0, 0, 60)
+Title.Position = UDim2.new(0.03, 0, 0.10, 0)
+Title.BackgroundColor3 = Color3.new(0, 0, 0)
+Title.BackgroundTransparency = 1
+Title.TextColor3 = Color3.new(1, 1, 1)
+Title.TextSize = 26
+Title.Font = Enum.Font.SourceSansBold
+Title.Text = "Wait to load The PETLOG HUB" -- Change to your script name
+Title.Parent = frame
+
+-- Loading bar frame
+local loadingBarFrame = Instance.new("Frame")
+loadingBarFrame.Size = UDim2.new(0, 0, 0.2, 0)
+loadingBarFrame.Position = UDim2.new(0.02, 0, 0.7, 0)
+loadingBarFrame.BackgroundColor3 = Color3.new(0, 1, 0) -- Green
+loadingBarFrame.Parent = frame
+
+-- UICorner of the loading bar frame
+local corner_2 = Instance.new("UICorner")
+corner_2.CornerRadius = UDim.new(0, 6)
+corner_2.Parent = loadingBarFrame
+
+-- Loading text
+local loadingText = Instance.new("TextLabel")
+loadingText.Size = UDim2.new(0.95, 0, 0, 30)
+loadingText.Position = UDim2.new(0.03, 0, 0.7, 0)
+loadingText.BackgroundColor3 = Color3.new(0, 0, 0)
+loadingText.BackgroundTransparency = 1
+loadingText.TextColor3 = Color3.new(1, 1, 1)
+loadingText.TextSize = 18
+loadingText.Font = Enum.Font.SourceSansBold
+loadingText.Text = "Loading..."
+loadingText.Parent = frame
+
+-- Function to animate the loading bar
+function animateLoadingBar()
+    local progress = 0
+
+    while progress < 100 do
+        progress = progress + 1
+        updateProgress(progress)
+        wait(0.02) -- Adjust the animation speed as needed
+    end
+
+    loadingText.Text = "Successfully Loaded"
+    wait(0.3)
+    gui:Destroy()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- Load Kavo UI Library
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ZeianRussell/Kavo-UI-Library/main/Movable.source.lua"))()
+local Window = Library.CreateLib("PETLOG HUB | Script for Natural disasters", "DarkTheme")
+
+-- Create Sections Properly
+local Tab1 = Window:NewTab("Main")
+local Tab2 = Window:NewTab("Teleport")
+local Tab3 = Window:NewTab("Player")
+local Tab4 = Window:NewTab("Visual")
+local Tab5 = Window:NewTab("Script")
+local Tab6 = Window:NewTab("Instructions")
+local Tab7 = Window:NewTab("Update log")
+local Tab8 = Window:NewTab("Credits")
+
+-- MainTab Section Initialization
+local MainSection = Tab1:NewSection("Natural disasters Auto Farm")
+
+MainSection:NewToggle("Auto farm", "Auto farm AFK", function(bool)
+    if bool then
+        event = runService.RenderStepped:Connect(function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-264, 195, 288)
+        end)
+    else
+        if event then
+         event:Disconnect()
+	end
+end)
+
+MainSection:NewLabel("Rocket")
+
+MainSection:NewButton("Launch Rocket", "Click this to Launch Rocket", function()
+    pcall(function()
+        fireclickdetector(game:GetService("Workspace").Structure["Launch Land"]["SPACESHIP!!"].Shuttle.IgnitionButton.ClickDetector)
+        fireclickdetector(game:GetService("Workspace").Structure["Launch Land"].RocketStand.ConsoleLower.ReleaseButtonLower.ClickDetector)
+        fireclickdetector(game:GetService("Workspace").Structure["Launch Land"].RocketStand.ConsoleUpper.ReleaseButtonUpper.ClickDetector)
+        fireclickdetector(game:GetService("Workspace").Structure["Launch Land"].LoadingTower.Console.ReleaseEntryBridge.ClickDetector)
+    end)
+end)
+
+MainSection:NewLabel("Walk to water and solid island")
+
+MainSection:NewToggle("Walk on Water", "Click to walk on water", function(bool)
+    local water = game.Workspace.WaterLevel
+    if bool then
+        -- Enable walking on water
+        water.CanCollide = true
+        water.Size = Vector3.new(1000, 1, 1000)
+    else
+        -- Disable walking on water
+        water.CanCollide = false
+        water.Size = Vector3.new(10, 1, 10)
+    end
+end)
+
+MainSection:NewToggle("Solid island", "Activate solid island", function(bool)
+	for _, v in pairs (game.workspace:GetDescendants())do
+		if v.Name == 'LowerRocks' then
+			v.CanCollide = bool
+		end
+	end
+end)
+
+MainSection:NewLabel("Teleporttool but different Name")
+MainSection:NewButton("Petlog Tool", "Get the Legendary petlog tool", function()
+    
+end)
+
+MainSection:NewButton("Teleporttool", "Get teleporttool", function()
+    
+end)
+
+MainSection:NewLabel("Choose map Gui [Patched]")
+
+MainSection:NewButton("Choose map GUI", "Choose your Favorite Map", function()
+    local mapVotePage = game.Players.LocalPlayer.PlayerGui.MainGui.MapVotePage
+    mapVotePage.Visible = not mapVotePage.Visible -- Toggle visibility
+end)
+
+MainSection:NewButton("Disasters notification", "Pop up Disaster Notification", function()
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Notification";
+        Text = "Next Disaster Is: " .. SurvivalTag.Value;
+        Duration = 5; -- Display notification for 5 seconds
+    })
+end)
+
+local TeleportSection = Tab2:NewSection("Teleport to Section")
+
+TeleportSection:NewButton("Teleport to island", "Teleport to island", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-108, 49, 0)
+end)
+
+TeleportSection:NewButton("Teleport to Tower", "Teleport to Tower", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-264, 196, 288)
+end)
+
+TeleportSection:NewLabel("Set Home point")
+-- Button to set the Home Point
+TeleportSection:NewButton("Set Home Point", "Click this to set Home Point", function()
+    local player = game.Players.LocalPlayer
+    if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+        homePosition = player.Character.HumanoidRootPart.Position
+        -- Notification for setting home point with icon
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "Home Point";
+            Text = "Home point set successfully!";
+            Icon = "rbxthumb://type=Asset&id=5107182114&w=150&h=150";
+            Duration = 3;
+        })
+    else
+        -- Notification for error with icon
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "Notification";
+            Text = "Failed to set Home Point. HumanoidRootPart not found.";
+            Icon = "rbxthumb://type=Asset&id=5107182114&w=150&h=150";  -- Replace with an error icon if needed
+            Duration = 3;
+        })
+    end
+end)
+
+-- Button to teleport to the Home Point
+TeleportSection:NewLabel("Goto Set home point")
+TeleportSection:NewButton("Goto Home Point", "Click this to teleport to Home", function()
+    if homePosition then
+        local player = game.Players.LocalPlayer
+        if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(homePosition)
+            -- Notification for successful teleportation with icon
+            game:GetService("StarterGui"):SetCore("SendNotification", {
+                Title = "Notification";
+                Text = "Teleport successful!";
+                Icon = "rbxthumb://type=Asset&id=5107182114&w=150&h=150"; -- Use an appropriate icon here
+                Duration = 3;
+            })
+        else
+            -- Notification for error with icon
+            game:GetService("StarterGui"):SetCore("SendNotification", {
+                Title = "Notification Error";
+                Text = "Failed to teleport. HumanoidRootPart not found.";
+                Icon = "rbxthumb://type=Asset&id=5107182114&w=150&h=150";  -- Replace with an error icon if needed
+                Duration = 3;
+            })
+        end
+    else
+        -- Notification if no home point is set with icon
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "Notification Error";
+            Text = "Home Point not set. Please set it first.";
+            Icon = "rbxthumb://type=Asset&id=5107182114&w=150&h=150"; -- Use an appropriate icon here
+            Duration = 3;
+        })
+    end
+end)
+
+
+
+
+
+
+
+
+
+
+
+local PlayerSection = Tab3:NewSection("Player Section")
+PlayerSection:NewLabel("Set walkspeed and Gravity")
+-- Variables to store WalkSpeed value and toggle state
+local walkSpeedInputValue = "16" -- Default value for WalkSpeed input
+local walkSpeedEnabled = false -- Toggle state
+
+-- Toggle for enabling/disabling WalkSpeed
+PlayerSection:NewToggle("Toggle WalkSpeed", "Enable or Disable WalkSpeed", function(state)
+    walkSpeedEnabled = state
+    if walkSpeedEnabled then
+        -- Apply the WalkSpeed when the toggle is turned on
+        local speed = tonumber(walkSpeedInputValue)
+        if speed then
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = speed
+        end
+    else
+        -- Reset to default WalkSpeed when the toggle is turned off
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16 -- Default Roblox WalkSpeed
+    end
+end)
+
+-- Textbox for inputting WalkSpeed
+PlayerSection:NewTextBox("Set WalkSpeed", "Enter the WalkSpeed value", function(txt)
+    walkSpeedInputValue = txt
+    if walkSpeedEnabled then
+        local speed = tonumber(walkSpeedInputValue)
+        if speed then
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = speed
+        end
+    end
+end)
+
+PlayerSection:NewTextBox("Set Gravity", "Enter the Gravity value", function(txt)
+    local gravityValue = tonumber(txt) -- Convert input to a number
+    if gravityValue then
+        game.Workspace.Gravity = gravityValue
+    else
+        -- Optional: Notify user if input is invalid
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "Invalid Input",
+            Text = "Please enter a valid number for gravity.",
+            Duration = 3
+        })
+    end
+end)
+
+PlayerSection:NewLabel("infinite Jump")
+
+PlayerSection:NewToggle("Infinite Jump", "Infinite jump toggle button", function(state)
+    InfiniteJumpEnabled = state
+
+    if InfiniteJumpEnabled then
+        -- Enable Infinite Jump by connecting the JumpRequest event
+        JumpConnection = game:GetService("UserInputService").JumpRequest:Connect(function()
+            local humanoid = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass('Humanoid')
+            if humanoid then
+                humanoid:ChangeState("Jumping")
+            end
+        end)
+
+        -- Notification when Infinite Jump is enabled
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "Notification";
+            Text = "Infinite jump enabled";
+            Duration = 5;
+        })
+    else
+        -- Disable Infinite Jump by disconnecting the event
+        if JumpConnection then
+            JumpConnection:Disconnect()
+            JumpConnection = nil
+        end
+
+        -- Notification when Infinite Jump is disabled
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "Notification";
+            Text = "Infinite jump disabled";
+            Duration = 5;
+        })
+    end
+end)
+
+PlayerSection:NewLabel("No fall damage")
+
+PlayerSection:NewButton("No fall Damage", "Activate no fall damage", function()
+    local runsvc = game:GetService("RunService")
+    local heartbeat = runsvc.Heartbeat
+    local rstepped = runsvc.RenderStepped
+    local lp = game.Players.LocalPlayer
+    local novel = Vector3.zero
+
+    local function nofalldamage(chr)
+        local root = chr:WaitForChild("HumanoidRootPart")
+        
+        if root then
+            local con
+            con = heartbeat:Connect(function()
+                if not root.Parent then
+                    con:Disconnect()
+                end
+                
+                local oldvel = root.AssemblyLinearVelocity
+                root.AssemblyLinearVelocity = novel
+                
+                rstepped:Wait()
+                root.AssemblyLinearVelocity = oldvel
+            end)
+        end
+    end
+
+    -- Call nofalldamage on the current character and any future ones
+    nofalldamage(lp.Character)
+    lp.CharacterAdded:Connect(nofalldamage)
+end)
+
+
+
+
+
+
+-- Visual Tab Section Initialization
+local VisualSection = Tab4:NewSection("Visual Section")
+
+VisualSection:NewButton("Remove Sandstorm Effect", "Click this to Remove Sandstorm effect", function()
+ game.Players.LocalPlayer.PlayerGui.SandStormGui:destroy()
+end)
+
+VisualSection:NewButton("Remove Blizzard effect", "Click this to Remove Blizzard effect", function()
+    game.Players.LocalPlayer.PlayerGui.BlizzardGui:destroy()
+end)
+
+VisualSection:NewButton("Remove Ads", "Click this to Remove ads", function()
+game:GetService("Workspace").BillboardAd:Destroy()
+	game:GetService("Workspace")["Main Portal Template "]:Destroy()
+	game:GetService("Workspace").ReturnPortal:Destroy()
+end)
+
+VisualSection:NewLabel("Set to Day and Night")
+
+VisualSection:NewButton("Day", "Click this to Set Day", function()
+    -- Set the time to day
+    game.Lighting.ClockTime = 14 -- 14 corresponds to 2 PM
+    print("Set Day")
+end)
+
+VisualSection:NewButton("Night", "Click this to Set Night", function()
+    -- Set the time to night
+    game.Lighting.ClockTime = 0 -- 0 corresponds to midnight
+    print("Set Night")
+end)
+
+
+
+
+local ScriptSection = Tab5:NewSection("Script section And more")
+
+ScriptSection:NewButton("Infinite Yield", "Click this to load infinite yield", function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+ScriptSection:NewButton("Broken Hub Script", "Click this to load Script", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/H20CalibreYT/SystemBroken/main/script"))()
+end)
+
+local InstructionsSection = Tab6:NewSection("Instructions to use script")
+InstructionsSection:NewLabel("The Script is only working in Natural disaster")
+InstructionsSection:NewLabel("Search to Roblox Natural disaster to use the script")
+InstructionsSection:NewLabel("And execute the script Now you can use the script:D")
+InstructionsSection:NewLabel("If the script is not working like Tab not showing go to ")
+InstructionsSection:NewLabel("My YouTube channel and report it to me to fix it")
+InstructionsSection:NewLabel("Wait untill I fix it and Realised the new update")
+
+local UpdatelogSection = Tab7:NewSection("about new Update")
+UpdatelogSection:NewLabel("Update 1 added new Tab about visual")
+UpdatelogSection:NewLabel("Update 2 added new tab about Credits")
+UpdatelogSection:NewLabel("Update 2 added Loading for Mobile user")
+UpdatelogSection:NewLabel("Update 3 added KEYSYSTEM from GamerScriter")
+UpdatelogSection:NewLabel("Update 3 added instructions Tab")
+UpdatelogSection:NewLabel("Update 3 J Hub change to Petlog Hub")
+UpdatelogSection:NewLabel("Update 4 I added a Toggle button from YouTube")
+UpdatelogSection:NewLabel("Update 5 PetlogHub Rework")
+UpdatelogSection:NewLabel("Update 5 Update Log Fixed")
+UpdatelogSection:NewLabel("Update 6 Instructions Tab  adjustment to Work properly")
+UpdatelogSection:NewLabel("Update 6 Update Log Tab Adjustment")
+UpdatelogSection:NewLabel("Update 7 added Player and script Tab")
+UpdatelogSection:NewLabel("Update 8 Added Player Tab")
+UpdatelogSection:NewLabel("Update 8 Added Notification icon")
+UpdatelogSection:NewLabel("Update 9 coming soon😼")
+
+-- Credits Tab Section Initialization
+local CreditsSection = Tab8:NewSection("Credits")
+CreditsSection:NewLabel("Credits to Key system Script:D")
+CreditsSection:NewLabel("Credits to Loading Script:D")
+local CreditsSection = Tab8:NewSection("My YouTube Channel link")
+CreditsSection:NewButton("YouTube Channel Link", "Copy Link and Search to browser", function()
+setclipboard("https://youtube.com/@john_paquitoscriptshowcaser?si=-tBXbIplTfRj7ZRI")  -- Copies the link to the clipboard
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Link Copied!";
+        Text = "YouTube Channel link copied to clipboard.";
+        Duration = 5;
+    })
+end)
+
+local CreditsSection = Tab8:NewSection("My YouTube Channel Name")
+CreditsSection:NewButton("YouTube Channel Link", "Copy The YouTube Channel Name", function()
+setclipboard("john_paquitoscriptshowcaser")  -- Copies the link to the clipboard
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "For mobile user";
+        Text = "Copy the YT name and search in YouTube for more script";
+        Duration = 8;
+    })
+end)
+
+-- Toggle UI Button (Repositioned)
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "ScreenGui"
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ResetOnSpawn = false
+
+local Toggle = Instance.new("TextButton")
+Toggle.Name = "Toggle"
+Toggle.Parent = ScreenGui
+Toggle.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Toggle.Position = UDim2.new(0.05, 0, 0.1, 0)  -- Repositioned to make sure it's visible on screen
+Toggle.Size = UDim2.new(0, 55, 0, 55)  -- Increased size to ensure it is clickable
+Toggle.Font = Enum.Font.SourceSans
+Toggle.Text = "Close"
+Toggle.TextColor3 = Color3.fromRGB(248, 248, 248)
+Toggle.TextSize = 28.000
+Toggle.Draggable = true
+
+-- Toggle the UI when the button is clicked
+Toggle.MouseButton1Click:Connect(function()
+    if Toggle.Text == "Close" then
+        Toggle.Text = "Open"
+    else
+        Toggle.Text = "Close"
+    end
+    Library:ToggleUI()
+end)
+
+-- UI Corner for the Toggle Button
+local Corner = Instance.new("UICorner")
+Corner.Name = "Corner"
+Corner.Parent = Toggle
+end
+
+-- Function to update the loading progress
+function updateProgress(progress)
+    loadingBarFrame.Size = UDim2.new(progress / 105, 0, 0.2, 0)
+    loadingText.Text = "Loading: " .. progress .. "%"
+end
+
+-- Start the loading animation
+spawn(animateLoadingBar)
+
+    else
+        TextBox.PlaceholderText = "Invalid key. Try again."
+        TextBox.Text = ""
+        wait(1)
+        TextBox.PlaceholderText = "Enter The Key Here"
+        TextBox.Text = ""
+    end
+end)
